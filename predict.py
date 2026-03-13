@@ -144,15 +144,15 @@ class Predictor(BasePredictor):
             # Audio input: original audio file
             "-i",
             str(audio_file),
-            # Video encoding — CRF 32 + tune stillimage is optimal for synthetic
-            # graphics (colored dots on black). Produces very small files with
-            # no visible quality loss for this content type.
+            # Video encoding — CRF 18 is visually lossless. Combined with
+            # tune stillimage, this is well-suited for synthetic graphics
+            # (colored dots on black).
             "-c:v",
             "libx264",
             "-preset",
             "veryfast",
             "-crf",
-            "32",
+            "18",
             "-tune",
             "stillimage",
             "-pix_fmt",
