@@ -90,13 +90,14 @@ class Predictor(BasePredictor):
         # Calculate number of frames needed
         n_frames = int(duration * fps)
 
-        # Convert hex color to RGB
+        # Convert hex color to BGR (OpenCV uses BGR channel ordering)
         hex_color = dot_color.lstrip("#")
         rgb_color = tuple(int(hex_color[i : i + 2], 16) for i in (0, 2, 4))
+        bgr_color = rgb_color[::-1]
 
         # Pre-calculate colors: full brightness and half brightness (works on black bg)
-        color_full = rgb_color
-        color_half = tuple(c // 2 for c in rgb_color)
+        color_full = bgr_color
+        color_half = tuple(c // 2 for c in bgr_color)
 
         # Pre-calculate radius and other constants
         radius = (dot_size + 1) // 2
