@@ -18,3 +18,7 @@ To run a prediction:
 Output
 
 ![output](waveform.webp)
+
+## License
+
+The code in this repository is licensed under the [Apache License 2.0](LICENSE).
